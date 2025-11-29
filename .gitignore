@@ -1,0 +1,90 @@
+==========================================================
+
+C++ / CMake Project Ignored Files
+
+==========================================================
+
+-----------------
+
+Build and Output Artifacts
+
+-----------------
+
+CMake build directories (matching binaryDir in CMakePresets.json)
+
+/out/
+/build/
+/Debug/
+/Release/
+/RelWithDebInfo/
+/MinSizeRel/
+
+General compiler output
+
+*.o
+*.obj
+*.i
+*.s
+
+Executables and Libraries
+
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+
+Program Database files
+
+*.pdb
+*.ilk
+
+-----------------
+
+CMake Specific Files
+
+-----------------
+
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+.cmake/
+
+-----------------
+
+Dependency Files (FetchContent)
+
+-----------------
+
+Google Test and other fetched dependencies are usually placed here
+
+by FetchContent, often created in the build directory.
+
+/_deps/
+
+-----------------
+
+IDE and Editor Files
+
+-----------------
+
+VS Code
+
+.vscode/
+
+Visual Studio (MSVC/Clang-cl)
+
+.vs/
+*.VC.db
+*.suo
+*.user
+
+-----------------
+
+PUZZLE INPUTS
+
+-----------------
+
+inputs/
