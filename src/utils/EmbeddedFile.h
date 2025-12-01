@@ -1,6 +1,10 @@
 #ifndef UTILS_EMBEDDED_FILE_H
 #define UTILS_EMBEDDED_FILE_H
 
+#include <expected>
+#include <string>
+#include <vector>
+
 namespace utils::embedded_file
 {
 	#define MAKE_LITERAL(X) #X
@@ -35,6 +39,8 @@ namespace utils::embedded_file
 	#define DAY_12_PATH EMBED_PATH(INPUTS_DIR/DAY_12_FILE)
 
 	constexpr char NULL_TERMINATOR = '\0';
+	constexpr char NEW_LINE_ESCAPE = '\n';
+	constexpr char RETURN_CARRIAGE = '\r';
 
 	const char day_1_input_arr[] =
 	{
@@ -107,6 +113,9 @@ namespace utils::embedded_file
 		#embed DAY_12_PATH if_empty('M', 'i', 's', 's', 'i', 'n', 'g', '\n')
 		,NULL_TERMINATOR
 	};
+
+
+	std::vector<std::string> embedded_input_by_line(const char* embedded_input, const char& separator = NEW_LINE_ESCAPE) noexcept;
 
 }
 #endif

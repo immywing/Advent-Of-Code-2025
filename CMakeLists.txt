@@ -26,9 +26,9 @@ file(MAKE_DIRECTORY \"${INPUTS_DIR}\")
 foreach(i RANGE 1 12)
     set(INPUT_FILE \"${INPUTS_DIR}/day_\${i}.txt\")
     if (NOT EXISTS \${INPUT_FILE})
-        message(STATUS \"[Build Step] Creating placeholder input file: \${INPUT_FILE}\")
-        # Writing a simple line to the file
-        file(WRITE \${INPUT_FILE} \"# Placeholder input for Day \${i}\\n\")
+        message(STATUS \"[Build Step] Creating empty input file: \${INPUT_FILE}\")
+        # Writing an empty string to create an empty file
+        file(WRITE \${INPUT_FILE} \"\")
     endif()
 endforeach()
 ")
@@ -44,10 +44,12 @@ set(PROJECT_SOURCES
     #add as needed
     src/utils/EmbeddedFile.h
     src/utils/EmbeddedFile.cpp
+    src/solutions/day_1/Day1.h src/solutions/day_1/Day1.cpp
 )
 
 set(TEST_SOURCES
     #add as needed
+    tests/EmbeddedFile/EmbeddedFile_Tests.cpp
 )
 
 # AOC executable
@@ -67,7 +69,7 @@ add_executable(
     tests/tests.cpp
     ${TEST_SOURCES}
     ${PROJECT_SOURCES}
-)
+ )
 
 # Include the src directory for Tests (so tests can find project headers)
 target_include_directories(tests PUBLIC ${CMAKE_SOURCE_DIR}/src/)
