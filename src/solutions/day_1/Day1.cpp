@@ -11,7 +11,7 @@ std::string aoc::day_1::part_1()
 	for (const std::string& line: utils::embedded_file::embedded_input_by_line(utils::embedded_file::day_1_input_arr))
 	{
 		const int offset = std::stoi(line.substr(1));
-		const int increment = line[0] == 'L' ? DIAL_MODULUS - (offset % DIAL_MODULUS) : offset;
+		const int increment = line[0] == LEFT_CHAR ? DIAL_MODULUS - (offset % DIAL_MODULUS) : offset;
 		dial_position = (dial_position + increment) % DIAL_MODULUS;
 		total += dial_position == 0 ? 1 : 0;
 	}
@@ -28,7 +28,7 @@ std::string aoc::day_1::part_2()
 	{
 		const int offset = std::stoi(line.substr(1));
 
-		const int increment = line[0] == 'L' ? -1 : 1;
+		const int increment = line[0] == LEFT_CHAR ? -1 : 1;
 
 		for (int i = 0; i < offset; ++i)
 		{
