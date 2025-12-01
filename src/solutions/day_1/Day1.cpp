@@ -7,7 +7,7 @@
 std::string aoc::day_1::part_1()
 {
 	int total = 0;
-	uint8_t dial_position = DIAL_START_POSITION;
+	int dial_position = DIAL_START_POSITION;
 	for (const std::string& line: utils::embedded_file::embedded_input_by_line(utils::embedded_file::day_1_input_arr))
 	{
 		const int offset = std::stoi(line.substr(1));
