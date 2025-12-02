@@ -1,12 +1,13 @@
 ﻿cmake_minimum_required(VERSION 3.25) # Updated to a modern version for C++23 support
 set(PROJECT_NAME Advent-Of-Code-2025)
-project(${PROJECT_NAME} VERSION 1.0) # CORRECTED: Added CXX language specification
+project(${PROJECT_NAME} VERSION 1.0)
 include(FetchContent)
 set(BUILD_SHARED_LIBS OFF)
 
 # Enforce C++23 standard
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
+add_compile_options($<$<COMPILE_LANGUAGE:CXX>:/std:c++23>)
 
 # Fetch Google Test dependency:
 FetchContent_Declare(
@@ -16,8 +17,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-set(CREATE_INPUTS_SCRIPT "${CMAKE_BINARY_DIR}/create_inputs_script.cmake")
-set(INPUTS_DIR "${CMAKE_SOURCE_DIR}/inputs")
+if (TARGET gtest)
+    target_compile_features(gtest PUBLIC cxx_std_23)
+endif()
+if (TARGET gtest_main)
+    target_compile_features(gtest_main PUBLIC cxx_std_23)
+endif()
+
+set(CREATE_INPUTS_SCRIPT ${CMAKE_BINARY_DIR}/create_inputs_script.cmake)
+set(INPUTS_DIR ${CMAKE_SOURCE_DIR}/inputs)
 
 set(SCRIPT_CONTENT "
 # This script is executed during the build step using 'cmake -P'.
@@ -45,6 +53,7 @@ set(PROJECT_SOURCES
     src/utils/EmbeddedFile.h
     src/utils/EmbeddedFile.cpp
     src/solutions/day_1/Day1.h src/solutions/day_1/Day1.cpp
+    src/solutions/day_2/Day2.h src/solutions/day_2/Day2.cpp
 )
 
 set(TEST_SOURCES
@@ -59,6 +68,8 @@ add_executable(
     ${PROJECT_SOURCES}
 )
 
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23)
+
 # Allow the main executable to include files from the 'inputs' directory
 target_include_directories(${PROJECT_NAME} PRIVATE INPUTS_DIR)
 
@@ -70,6 +81,8 @@ add_executable(
     ${TEST_SOURCES}
     ${PROJECT_SOURCES}
  )
+
+target_compile_features(tests PRIVATE cxx_std_23)
 
 # Include the src directory for Tests (so tests can find project headers)
 target_include_directories(tests PUBLIC ${CMAKE_SOURCE_DIR}/src/)
