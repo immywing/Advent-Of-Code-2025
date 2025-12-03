@@ -1,7 +1,5 @@
 #include "Day1.h"
 
-#include <iostream>
-
 #include "../../utils/EmbeddedFile.h"
 
 std::string aoc::day_1::part_1() noexcept

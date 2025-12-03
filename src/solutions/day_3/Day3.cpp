@@ -1,9 +1,6 @@
 #include "Day3.h"
 
-#include <algorithm>
-#include <iostream>
 #include <ranges>
-#include <set>
 #include <utility>
 #include <vector>
 
