@@ -57,7 +57,7 @@ std::string aoc::day_3::part_2() noexcept
 		std::string voltage;
 		int max_index = -1;
 
-		auto battery_indexers = line |
+		auto batteries = line |
 			std::views::enumerate |
 			std::views::transform(pair_to_battery) |
 			std::ranges::to<std::vector<Battery>>();
@@ -66,7 +66,7 @@ std::string aoc::day_3::part_2() noexcept
 		{
 			Battery max_battery(0, -1);
 
-			for (const auto&& window : battery_indexers | std::views::slide(window_size) | std::views::reverse)
+			for (const auto&& window : batteries | std::views::slide(window_size) | std::views::reverse)
 			{
 				max_battery = window.front().value >= max_battery.value && window.front().index > max_index ? window.front() : max_battery;
 			}
