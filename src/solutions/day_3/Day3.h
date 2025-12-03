@@ -14,7 +14,7 @@ namespace aoc::day_3
 		Battery(const int& value, const int& index);
 	};
 
-	Battery pair_to_battery(const std::pair<char, int>& pair);
+	Battery pair_to_battery(const std::pair<int, char>& pair);
 
 	std::string part_1() noexcept;
 	std::string part_2() noexcept;

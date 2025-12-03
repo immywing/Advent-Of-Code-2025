@@ -9,7 +9,7 @@
 
 aoc::day_3::Battery::Battery(const int& value, const int& index) : value(value), index(index) {}
 
-aoc::day_3::Battery aoc::day_3::pair_to_battery(const std::pair<char, int>& pair)
+aoc::day_3::Battery aoc::day_3::pair_to_battery(const std::pair<int, char>& pair)
 {
 	return { pair.second - ZERO_CHAR, pair.first };
 }
