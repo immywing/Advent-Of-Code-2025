@@ -1,13 +1,15 @@
-﻿cmake_minimum_required(VERSION 3.25) # Updated to a modern version for C++23 support
+﻿cmake_minimum_required(VERSION 3.25)
 set(PROJECT_NAME Advent-Of-Code-2025)
 project(${PROJECT_NAME} VERSION 1.0)
 include(FetchContent)
 set(BUILD_SHARED_LIBS OFF)
 
-# Enforce C++23 standard
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
-add_compile_options($<$<COMPILE_LANGUAGE:CXX>:/std:c++23>)
+
+# FALLBACK FIX - Intellisense not working without: suppress Clang's "unused argument" error
+add_compile_options($<$<COMPILE_LANGUAGE:CXX>:/std:c++latest>)
+add_compile_options($<$<CXX_COMPILER_ID:Clang>:-Wno-unused-command-line-argument>)
 
 # Fetch Google Test dependency:
 FetchContent_Declare(
@@ -17,6 +19,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+# Force Google Test targets to compile with C++23 for compatibility
 if (TARGET gtest)
     target_compile_features(gtest PUBLIC cxx_std_23)
 endif()
@@ -54,6 +57,7 @@ set(PROJECT_SOURCES
     src/utils/EmbeddedFile.cpp
     src/solutions/day_1/Day1.h src/solutions/day_1/Day1.cpp
     src/solutions/day_2/Day2.h src/solutions/day_2/Day2.cpp
+    src/solutions/day_3/Day3.h src/solutions/day_3/Day3.cpp
 )
 
 set(TEST_SOURCES
@@ -61,32 +65,47 @@ set(TEST_SOURCES
     tests/EmbeddedFile/EmbeddedFile_Tests.cpp
 )
 
-# AOC executable
+# ==========================================================
+# 1. AOC EXECUTABLE DEFINITION
+# ==========================================================
 add_executable(
     ${PROJECT_NAME}
     src/Advent-Of-Code-2025.cpp
     ${PROJECT_SOURCES}
 )
 
+# IntelliSense Fix for Clang/VS
+set_property(TARGET ${PROJECT_NAME} PROPERTY VS_GLOBAL_VCC_KIND ClangC23)
+
+# Apply C++23 Feature
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23)
 
-# Allow the main executable to include files from the 'inputs' directory
-target_include_directories(${PROJECT_NAME} PRIVATE INPUTS_DIR)
+# Include Directories (Corrected variable usage and added src)
+target_include_directories(${PROJECT_NAME} PRIVATE 
+    ${INPUTS_DIR}
+)
 
-# Tests
+# ==========================================================
+# 2. TESTS EXECUTABLE DEFINITION
+# ==========================================================
 enable_testing()
 add_executable(
     tests
     tests/tests.cpp
     ${TEST_SOURCES}
     ${PROJECT_SOURCES}
- )
+)
 
+# IntelliSense Fix for Clang/VS
+set_property(TARGET tests PROPERTY VS_GLOBAL_VCC_KIND ClangC23)
+
+# Apply C++23 Feature
 target_compile_features(tests PRIVATE cxx_std_23)
 
-# Include the src directory for Tests (so tests can find project headers)
+# Include the src directory for Tests
 target_include_directories(tests PUBLIC ${CMAKE_SOURCE_DIR}/src/)
-# Allow tests to access inputs (if needed by tests)
+
+# Allow tests to access inputs
 target_include_directories(tests PRIVATE ${CMAKE_SOURCE_DIR}/inputs)
 
 target_link_libraries(

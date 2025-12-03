@@ -8,7 +8,7 @@ namespace aoc::day_1
 	constexpr int DIAL_MODULUS = 100;
 	constexpr char LEFT_CHAR = 'L';
 
-	std::string part_1();
-	std::string part_2();
+	std::string part_1() noexcept;
+	std::string part_2() noexcept;
 }
 #endif

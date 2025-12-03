@@ -7,7 +7,7 @@
 #include "../../utils/EmbeddedFile.h"
 
 
-std::string aoc::day_2::part_1()
+std::string aoc::day_2::part_1() noexcept
 {
 	long long total = 0;
 
@@ -38,7 +38,7 @@ std::string aoc::day_2::part_1()
 	return std::to_string(total);
 }
 
-std::string aoc::day_2::part_2()
+std::string aoc::day_2::part_2() noexcept
 {
 	long long total = 0;
 

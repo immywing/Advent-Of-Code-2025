@@ -4,7 +4,7 @@
 
 #include "../../utils/EmbeddedFile.h"
 
-std::string aoc::day_1::part_1()
+std::string aoc::day_1::part_1() noexcept
 {
 	int total = 0;
 	int dial_position = DIAL_START_POSITION;
@@ -19,7 +19,7 @@ std::string aoc::day_1::part_1()
 	return std::to_string(total);
 }
 
-std::string aoc::day_1::part_2()
+std::string aoc::day_1::part_2() noexcept
 {
 	int total = 0;
 	int dial_position = DIAL_START_POSITION;
