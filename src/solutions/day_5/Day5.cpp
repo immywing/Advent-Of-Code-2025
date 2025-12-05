@@ -45,15 +45,18 @@ std::string aoc::day_5::part_2() noexcept
 
 	const std::vector fresh_ingredient_ranges(lines.begin(), empty_line_it);
 
-	std::vector<std::pair<long long, long long>> ingredient_ranges;
-
-	for (const auto& fresh_range : fresh_ingredient_ranges)
+	auto create_range_pair_lambda = [](const std::string& fresh_range) 
 	{
 		const size_t separator_index = fresh_range.find(HYPHEN_CHAR);
 		const long long lower_int = std::stoll(fresh_range.substr(0, separator_index));
 		const long long upper_int = std::stoll(fresh_range.substr(separator_index + 1));
-		ingredient_ranges.emplace_back(lower_int, upper_int);
-	}
+		return std::make_pair(lower_int, upper_int);
+	};
+
+	std::vector<std::pair<long long, long long>> ingredient_ranges =
+		fresh_ingredient_ranges
+		| std::views::transform(create_range_pair_lambda)
+		| std::ranges::to<std::vector>();
 
 	std::ranges::sort(ingredient_ranges, [](const auto& a, const auto& b) { return a.first < b.first; });
 
