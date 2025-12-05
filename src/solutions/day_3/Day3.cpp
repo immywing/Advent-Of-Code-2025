@@ -57,10 +57,10 @@ std::string aoc::day_3::part_2() noexcept
 		std::string voltage;
 		int max_index = -1;
 
-		auto batteries = line |
-			std::views::enumerate |
-			std::views::transform(pair_to_battery) |
-			std::ranges::to<std::vector<Battery>>();
+		auto batteries = line 
+			| std::views::enumerate 
+			| std::views::transform(pair_to_battery) 
+			| std::ranges::to<std::vector<Battery>>();
 
 		for (size_t window_size = TWELVE; window_size > 0; --window_size)
 		{
