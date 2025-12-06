@@ -24,7 +24,7 @@ std::string aoc::day_6::part_1() noexcept
 		| std::views::transform(lambda_split_string_by_whitespace)
 		| std::ranges::to<std::vector>();
 
-	const auto operators = lines_split_by_column.back();
+	const auto operators = std::move(lines_split_by_column.back());
 	lines_split_by_column.pop_back();
 
 	const auto lambda_transform_to_vertical_lines = [&lines_split_by_column](const size_t& index)
