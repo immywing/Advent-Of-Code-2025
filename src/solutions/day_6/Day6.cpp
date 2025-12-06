@@ -66,7 +66,6 @@ std::string aoc::day_6::part_2() noexcept
 
 	lines.pop_back();
 
-	/* transformation lambdas  */ 
 	const auto lambda_transform_to_vertical_lines = [&lines](const size_t& index)
 		{
 			return lines
