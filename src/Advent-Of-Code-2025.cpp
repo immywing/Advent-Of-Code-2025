@@ -13,16 +13,16 @@
 int main()
 {
 	/* TODO Not yet decided on how the main app should run. possibly args to request solutions for a specific day, or threads to solve each puzzle concurrently */
-	std::cout << "day 1 - part 1: " << aoc::day_1::part_1() << '\n';
-	std::cout << "day 1 - part 2: " << aoc::day_1::part_2() << '\n';
-	std::cout << "day 2 - part 1: " << aoc::day_2::part_1() << '\n';
-	std::cout << "day 2 - part 2: " << aoc::day_2::part_2() << '\n';
-	std::cout << "day 3 - part 1: " << aoc::day_3::part_1() << '\n';
-	std::cout << "day 3 - part 2: " << aoc::day_3::part_2() << '\n';
-	std::cout << "day 4 - part 1: " << aoc::day_4::part_1() << '\n';
-	std::cout << "day 4 - part 2: " << aoc::day_4::part_2() << '\n';
-	std::cout << "day 5 - part 1: " << aoc::day_5::part_1() << '\n';
-	std::cout << "day 5 - part 2: " << aoc::day_5::part_2() << '\n';
+	//std::cout << "day 1 - part 1: " << aoc::day_1::part_1() << '\n';
+	//std::cout << "day 1 - part 2: " << aoc::day_1::part_2() << '\n';
+	//std::cout << "day 2 - part 1: " << aoc::day_2::part_1() << '\n';
+	//std::cout << "day 2 - part 2: " << aoc::day_2::part_2() << '\n';
+	//std::cout << "day 3 - part 1: " << aoc::day_3::part_1() << '\n';
+	//std::cout << "day 3 - part 2: " << aoc::day_3::part_2() << '\n';
+	//std::cout << "day 4 - part 1: " << aoc::day_4::part_1() << '\n';
+	//std::cout << "day 4 - part 2: " << aoc::day_4::part_2() << '\n';
+	//std::cout << "day 5 - part 1: " << aoc::day_5::part_1() << '\n';
+	//std::cout << "day 5 - part 2: " << aoc::day_5::part_2() << '\n';
 	std::cout << "day 6 - part 1: " << aoc::day_6::part_1() << '\n';
 	std::cout << "day 6 - part 2: " << aoc::day_6::part_2() << '\n';
     return 0;
