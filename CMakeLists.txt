@@ -53,19 +53,23 @@ add_custom_target(create_inputs
 
 set(PROJECT_SOURCES
     #add as needed
-    src/utils/EmbeddedFile.h
-    src/utils/EmbeddedFile.cpp
+    src/utils/EmbeddedFile.h src/utils/EmbeddedFile.cpp
+    src/utils/Memoization.h src/utils/Memoization.cpp
     src/solutions/day_1/Day1.h src/solutions/day_1/Day1.cpp
     src/solutions/day_2/Day2.h src/solutions/day_2/Day2.cpp
     src/solutions/day_3/Day3.h src/solutions/day_3/Day3.cpp
     src/solutions/day_4/Day4.h src/solutions/day_4/Day4.cpp
     src/solutions/day_5/Day5.h src/solutions/day_5/Day5.cpp
     src/solutions/day_6/Day6.h src/solutions/day_6/Day6.cpp
+    src/solutions/day_7/Day7.h src/solutions/day_7/Day7.cpp
+    src/solutions/day_8/Day8.h src/solutions/day_8/Day8.cpp
+    src/solutions/day_9/Day9.h src/solutions/day_9/Day9.cpp
 )
 
 set(TEST_SOURCES
     #add as needed
     tests/EmbeddedFile/EmbeddedFile_Tests.cpp
+    tests/day_9/Day9_Tests.cpp
 )
 
 # ==========================================================
@@ -97,7 +101,7 @@ add_executable(
     tests/tests.cpp
     ${TEST_SOURCES}
     ${PROJECT_SOURCES}
-)
+ )
 
 # IntelliSense Fix for Clang/VS
 set_property(TARGET tests PROPERTY VS_GLOBAL_VCC_KIND ClangC23)

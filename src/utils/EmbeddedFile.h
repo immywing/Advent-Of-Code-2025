@@ -1,7 +1,6 @@
 #ifndef UTILS_EMBEDDED_FILE_H
 #define UTILS_EMBEDDED_FILE_H
 
-#include <expected>
 #include <string>
 #include <vector>
 

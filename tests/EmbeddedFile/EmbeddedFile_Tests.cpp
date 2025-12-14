@@ -22,7 +22,7 @@ TEST(EmbeddedFile_Test, embedded_Input_by_line_produces_valid_vector)
 		},
 		TestCase
 		{
-			.input = "ab\n\rcd\n\ref\n\r",
+			.input = "ab\r\ncd\r\nef\r\n",
 			.expected{"ab", "cd", "ef"}
 		},
 		TestCase

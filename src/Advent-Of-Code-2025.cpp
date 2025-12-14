@@ -8,6 +8,9 @@
 #include "solutions/day_4/Day4.h"
 #include "solutions/day_5/Day5.h"
 #include "solutions/day_6/Day6.h"
+#include "solutions/day_7/Day7.h"
+#include "solutions/day_8/Day8.h"
+#include "solutions/day_9/Day9.h"
 #include "utils/EmbeddedFile.h"
 
 int main()
@@ -23,7 +26,15 @@ int main()
 	//std::cout << "day 4 - part 2: " << aoc::day_4::part_2() << '\n';
 	//std::cout << "day 5 - part 1: " << aoc::day_5::part_1() << '\n';
 	//std::cout << "day 5 - part 2: " << aoc::day_5::part_2() << '\n';
-	std::cout << "day 6 - part 1: " << aoc::day_6::part_1() << '\n';
-	std::cout << "day 6 - part 2: " << aoc::day_6::part_2() << '\n';
+	//std::cout << "day 6 - part 1: " << aoc::day_6::part_1() << '\n';
+	//std::cout << "day 6 - part 2: " << aoc::day_6::part_2() << '\n';
+	//std::cout << "day 7 - part 1: " << aoc::day_7::part_1() << '\n';
+	//std::cout << "day 7 - part 2: " << aoc::day_7::part_2() << '\n';
+
+	//std::cout << "day 8 - part 1: " << aoc::day_8::part_1() << '\n';
+	//std::cout << "day 8 - part 2: " << aoc::day_8::part_2() << '\n';
+
+	std::cout << "day 9 - part 1: " << aoc::day_9::part_1() << '\n';
+	std::cout << "day 9 - part 2: " << aoc::day_9::part_2() << '\n';
     return 0;
 }
