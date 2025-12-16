@@ -3,6 +3,7 @@
 #include "Advent-Of-Code-2025.h"
 
 #include "solutions/day_1/Day1.h"
+#include "solutions/day_11/Day11.h"
 #include "solutions/day_2/Day2.h"
 #include "solutions/day_3/Day3.h"
 #include "solutions/day_4/Day4.h"
@@ -30,11 +31,12 @@ int main()
 	//std::cout << "day 6 - part 2: " << aoc::day_6::part_2() << '\n';
 	//std::cout << "day 7 - part 1: " << aoc::day_7::part_1() << '\n';
 	//std::cout << "day 7 - part 2: " << aoc::day_7::part_2() << '\n';
-
 	//std::cout << "day 8 - part 1: " << aoc::day_8::part_1() << '\n';
 	//std::cout << "day 8 - part 2: " << aoc::day_8::part_2() << '\n';
+	//std::cout << "day 9 - part 1: " << aoc::day_9::part_1() << '\n';
+	//std::cout << "day 9 - part 2: " << aoc::day_9::part_2() << '\n';
 
-	std::cout << "day 9 - part 1: " << aoc::day_9::part_1() << '\n';
-	std::cout << "day 9 - part 2: " << aoc::day_9::part_2() << '\n';
+	std::cout << "day 9 - part 1: " << aoc::day_11::part_1() << '\n';
+	std::cout << "day 9 - part 2: " << aoc::day_11::part_2() << '\n';
     return 0;
 }

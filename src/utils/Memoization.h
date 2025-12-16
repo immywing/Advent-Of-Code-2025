@@ -115,7 +115,7 @@ namespace utils::memoization
     }
 
     template<class F, class H>
-    auto make_memoized_recursive(F f)
+    auto make_memoized_recursive(F f, H)
     {
         return MemoizedRecursive<F, H>{std::move(f)};
     }

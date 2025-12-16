@@ -64,6 +64,7 @@ set(PROJECT_SOURCES
     src/solutions/day_7/Day7.h src/solutions/day_7/Day7.cpp
     src/solutions/day_8/Day8.h src/solutions/day_8/Day8.cpp
     src/solutions/day_9/Day9.h src/solutions/day_9/Day9.cpp
+    src/solutions/day_11/Day11.h src/solutions/day_11/Day11.cpp
 )
 
 set(TEST_SOURCES

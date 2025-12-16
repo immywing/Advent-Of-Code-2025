@@ -14,7 +14,7 @@ TEST(Day_8_Tests, line_intersects_bounds_box)
 		bool expected;
 	};
 
-	std::array test_cases = 
+	constexpr std::array test_cases = 
 	{
 		TestCase
 		{
@@ -58,9 +58,7 @@ TEST(Day_8_Tests, line_intersects_bounds_box)
 			.line = std::make_pair(aoc::day_9::Vec2{.x = 3, .y = 6}, aoc::day_9::Vec2{.x = 10, .y = 6}) ,
 			.expected = true
 		},
-
-		//vertical cases
-			TestCase
+		TestCase
 		{
 			.a = aoc::day_9::Vec2{.x = 5, .y = 5},
 			.b = aoc::day_9::Vec2{.x = 10, .y = 10},
@@ -117,7 +115,6 @@ TEST(Day_8_Tests, line_intersects_bounds_box)
 			.line = std::make_pair(aoc::day_9::Vec2{.x = 6, .y = 10}, aoc::day_9::Vec2{.x = 6, .y = 15}) ,
 			.expected = false
 		},
-
 		TestCase
 		{
 			.a = aoc::day_9::Vec2{.x = 5, .y = 5},
@@ -132,8 +129,6 @@ TEST(Day_8_Tests, line_intersects_bounds_box)
 			.line = std::make_pair(aoc::day_9::Vec2{.x = 10, .y = 10}, aoc::day_9::Vec2{.x = 15, .y = 15}) ,
 			.expected = false
 		},
-
-		//FAILING IN INPUT
 		TestCase
 		{
 			.a = aoc::day_9::Vec2{.x = 9, .y = 3},
