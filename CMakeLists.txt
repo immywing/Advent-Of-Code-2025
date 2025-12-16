@@ -10,6 +10,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED true)
 # FALLBACK FIX - Intellisense not working without: suppress Clang's "unused argument" error
 add_compile_options($<$<COMPILE_LANGUAGE:CXX>:/std:c++latest>)
 add_compile_options($<$<CXX_COMPILER_ID:Clang>:-Wno-unused-command-line-argument>)
+# --- WARNING SUPPRESSION FOR C++23 #embed ---
+add_compile_options($<$<CXX_COMPILER_ID:Clang>:-Wno-c23-extensions>)
+
+set(CMAKE_CXX_CLANG_TIDY
+    clang-tidy
+    --extra-arg-before=--driver-mode=cl
+)
 
 # Fetch Google Test dependency:
 FetchContent_Declare(

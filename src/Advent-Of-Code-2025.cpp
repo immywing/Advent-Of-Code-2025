@@ -38,5 +38,6 @@ int main()
 
 	std::cout << "day 9 - part 1: " << aoc::day_11::part_1() << '\n';
 	std::cout << "day 9 - part 2: " << aoc::day_11::part_2() << '\n';
+
     return 0;
 }

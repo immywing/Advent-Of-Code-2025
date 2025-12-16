@@ -111,7 +111,5 @@ std::string aoc::day_7::part_2() noexcept
 		}
 	}
 
-	bool b = total == 48989920237096LL;
-
 	return std::to_string(total);
 }

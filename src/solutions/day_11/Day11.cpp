@@ -18,17 +18,14 @@ std::pair<std::string, std::vector<aoc::day_11::PathLog>> aoc::day_11::transform
 	auto vec = line
 		| std::views::split(COLON_CHAR)
 		| std::views::transform([](auto&& subrange) { return std::string(subrange.begin(), subrange.end()); })
-		| std::ranges::to<std::vector>();
+		| std::ranges::to<std::vector<std::string>>();
 
 	auto key = vec.front();
 
-	auto value_vec = vec.back()
+	auto value = vec.back()
 		| std::views::split(SPACE_CHAR)
 		| std::views::transform([](auto&& subrange) { return std::string(subrange.begin(), subrange.end()); })
 		| std::views::filter([](const std::string& s) { return !s.empty(); })
-		| std::ranges::to<std::vector>();
-
-	auto value = value_vec
 		| std::views::transform([](const std::string& str) { return PathLog{ str }; })
 		| std::ranges::to<std::vector>();
 
@@ -75,6 +72,5 @@ std::string aoc::day_11::part_2() noexcept
 	auto memo_path_counter = utils::memoization::make_memoized_recursive(path_counter);
 
 	const auto total = memo_path_counter(SVR, false, false);
-
 	return std::to_string(total);
 }

@@ -10,16 +10,16 @@ namespace utils::memoization
         seed ^= std::hash<T>()(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
     }
 
-    template <typename...Ts>
-    struct std::hash<std::tuple<Ts...>>
-    {
-        size_t operator() (const std::tuple<Ts...>& t) const
-        {
-            size_t seed = 0;
-            std::apply([&](auto const&... xs) { (hash_combine(seed, xs), ...); }, t);
-            return seed;
-        }
-    };
+    //template <typename...Ts>
+    //struct std::hash<std::tuple<Ts...>>
+    //{
+    //    size_t operator() (const std::tuple<Ts...>& t) const
+    //    {
+    //        size_t seed = 0;
+    //        std::apply([&](auto const&... xs) { (hash_combine(seed, xs), ...); }, t);
+    //        return seed;
+    //    }
+    //};
 
     template <typename Func, typename Hasher = std::hash<std::tuple<>>>
     class Memoized
@@ -119,6 +119,20 @@ namespace utils::memoization
     {
         return MemoizedRecursive<F, H>{std::move(f)};
     }
+}
+
+namespace std
+{
+    template <typename...Ts>
+    struct hash<std::tuple<Ts...>>
+    {
+        size_t operator() (const std::tuple<Ts...>& t) const
+        {
+            size_t seed = 0;
+            std::apply([&](auto const&... xs) { (utils::memoization::hash_combine(seed, xs), ...); }, t);
+            return seed;
+        }
+    };
 }
 
 #endif

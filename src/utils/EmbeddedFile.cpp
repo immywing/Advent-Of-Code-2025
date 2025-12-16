@@ -19,7 +19,7 @@ std::vector<std::string> utils::embedded_file::embedded_input_by_line(const char
 	if (embedded_input[start] != NULL_TERMINATOR)
 	{
 		size_t length = (end - start > 0) && embedded_input[end - 1] == RETURN_CARRIAGE ? end - start - 1 : end - start;
-		lines.emplace_back(embedded_input + start, end - start);
+		lines.emplace_back(embedded_input + start, length);
 	}
 
 	return lines;
